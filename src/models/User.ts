@@ -61,7 +61,6 @@ const UserSchema = new Schema<IUser>({
 });
 
 // Create indexes for better performance
-UserSchema.index({ email: 1 });
 UserSchema.index({ created_at: -1 });
 
 export default mongoose.models.User || mongoose.model<IUser>('User', UserSchema);
