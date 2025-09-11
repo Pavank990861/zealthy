@@ -5,7 +5,7 @@
 Make sure these are set in your Vercel dashboard:
 
 1. **MONGODB_URI**
-   - Value: `mongodb+srv://kanchetipavan04_db_user:K.pavan@86199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+   - Value: `mongodb+srv://kanchetipavan04_db_user:K.pavan%4086199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
    - Description: MongoDB Atlas connection string
 
 2. **MONGODB_DB**

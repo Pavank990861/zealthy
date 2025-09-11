@@ -73,14 +73,14 @@ git push -u origin main
 Create a `.env.local` file in your project root:
 
 ```bash
-MONGODB_URI=mongodb+srv://kanchetipavan04_db_user:K.pavan@86199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://kanchetipavan04_db_user:K.pavan%4086199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 MONGODB_DB=zealthy_onboarding
 NODE_ENV=development
 ```
 
 ### For Production (Vercel)
 Add these environment variables in your Vercel dashboard:
-- `MONGODB_URI`: Your MongoDB Atlas connection string
+   - `MONGODB_URI`: `mongodb+srv://kanchetipavan04_db_user:K.pavan%4086199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 - `MONGODB_DB`: `zealthy_onboarding`
 - `NODE_ENV`: `production`
 
