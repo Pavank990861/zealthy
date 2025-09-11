@@ -43,7 +43,7 @@ npm install
 Create a `.env.local` file in the root directory:
 ```bash
 # MongoDB Atlas Connection
-MONGODB_URI=mongodb+srv://kanchetipavan04_db_user:K.pavan%4086199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://kanchetipavan04_db_user:P6ofnG2i1pFeO1WJ@cluster0.mcdx0lm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 # Database Name
 MONGODB_DB=zealthy_onboarding
@@ -95,7 +95,7 @@ npm run dev
 1. Push your code to GitHub
 2. Connect your GitHub repository to Vercel
 3. Add environment variables in Vercel dashboard:
-   - `MONGODB_URI`: `mongodb+srv://kanchetipavan04_db_user:K.pavan%4086199@cluster0.deb3gtk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+   - `MONGODB_URI`: `mongodb+srv://kanchetipavan04_db_user:P6ofnG2i1pFeO1WJ@cluster0.mcdx0lm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
    - `MONGODB_DB`: Your database name
    - `NODE_ENV`: production
 
