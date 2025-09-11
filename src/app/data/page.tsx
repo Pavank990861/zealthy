@@ -22,7 +22,22 @@ export default function DataPage() {
       if (data.error) {
         setError(data.error);
       } else {
-        setUsers(data);
+        // Transform MongoDB data to match our User interface
+        const transformedUsers = data.map((user: any) => ({
+          id: user._id || user.id,
+          email: user.email || '',
+          password: user.password || '',
+          about_me: user.about_me || '',
+          street_address: user.street_address || '',
+          city: user.city || '',
+          state: user.state || '',
+          zip: user.zip || '',
+          birthdate: user.birthdate || '',
+          current_step: user.current_step || 1,
+          created_at: user.created_at || user.createdAt || new Date().toISOString(),
+          updated_at: user.updated_at || user.updatedAt || new Date().toISOString()
+        }));
+        setUsers(transformedUsers);
       }
     } catch {
       setError('Failed to fetch users');
@@ -154,7 +169,7 @@ export default function DataPage() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div>
                             <div className="text-sm font-medium text-white">{user.email}</div>
-                            <div className="text-sm text-gray-400">ID: {user.id.substring(0, 8)}...</div>
+                            <div className="text-sm text-gray-400">ID: {user.id ? user.id.substring(0, 8) + '...' : 'N/A'}</div>
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -167,7 +182,7 @@ export default function DataPage() {
                             {user.about_me && (
                               <div>
                                 <span className="font-medium text-white">About:</span> {user.about_me.substring(0, 50)}
-                                {user.about_me.length > 50 && '...'}
+                                {user.about_me && user.about_me.length > 50 && '...'}
                               </div>
                             )}
                             {(user.street_address || user.city || user.state || user.zip) && (
