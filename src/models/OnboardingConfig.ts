@@ -4,7 +4,8 @@ export interface IOnboardingConfig extends Document {
   _id: string;
   page_2_components: string[];
   page_3_components: string[];
-  created_at: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const OnboardingConfigSchema = new Schema<IOnboardingConfig>({

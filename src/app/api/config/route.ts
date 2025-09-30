@@ -6,7 +6,7 @@ export async function GET() {
   try {
     await connectDB();
     
-    let config = await OnboardingConfig.findOne().sort({ created_at: -1 });
+    let config = await OnboardingConfig.findOne().sort({ createdAt: -1 });
     
     if (!config) {
       // Create default configuration if none exists
@@ -21,7 +21,8 @@ export async function GET() {
       id: config._id,
       page_2_components: config.page_2_components,
       page_3_components: config.page_3_components,
-      created_at: config.created_at
+      createdAt: config.createdAt,
+      updatedAt: config.updatedAt
     });
   } catch (error) {
     console.error('Error fetching config:', error);
@@ -46,19 +47,19 @@ export async function POST(request: NextRequest) {
     }
 
     await connectDB();
-    
-    const config = new OnboardingConfig({
-      page_2_components,
-      page_3_components
-    });
 
-    await config.save();
+    const config = await OnboardingConfig.findOneAndUpdate(
+      {},
+      { page_2_components, page_3_components },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    );
 
     return NextResponse.json({
       id: config._id,
       page_2_components: config.page_2_components,
       page_3_components: config.page_3_components,
-      created_at: config.created_at
+      createdAt: config.createdAt,
+      updatedAt: config.updatedAt
     });
   } catch (error) {
     console.error('Error creating config:', error);
